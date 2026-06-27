@@ -1,6 +1,6 @@
 from pathlib import Path
 
-from scanner import LibraryScannerr
+from anime_cleanup.scanner import LibraryScanner
 
 ROOT = Path("/mnt/TANK/media/anime")
 
