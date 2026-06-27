@@ -41,6 +41,25 @@ class Library:
     series: list[SeriesFolder] = field(default_factory=list)
 
     @property
+    def is_tmdb(self) -> bool:
+    return self.tmdb_id is not None
+
+
+    @property
+    def is_legacy(self) -> bool:
+    return self.tmdb_id is None
+
+
+    @property
+    def has_seasons(self) -> bool:
+    return len(self.seasons) > 0
+
+
+    @property
+    def has_loose_files(self) -> bool:
+    return len(self.loose_files) > 0
+    
+    @property
     def series_count(self) -> int:
         return len(self.series)
 
