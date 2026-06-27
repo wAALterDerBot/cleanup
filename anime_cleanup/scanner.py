@@ -44,20 +44,20 @@ class LibraryScanner:
 
         self.root = root
 
-    def scan(self) -> list[SeriesFolder]:
+    def scan(self) -> Library:
 
-        series_list: list[SeriesFolder] = []
+    library = Library(root=self.root)
 
-        for folder in sorted(self.root.iterdir()):
+    for folder in sorted(self.root.iterdir()):
 
-            if not folder.is_dir():
-                continue
+        if not folder.is_dir():
+            continue
 
-            series = self._scan_series(folder)
+        library.series.append(
+            self._scan_series(folder)
+        )
 
-            series_list.append(series)
-
-        return series_list
+    return library
 
     def _scan_series(self, folder: Path) -> SeriesFolder:
 
