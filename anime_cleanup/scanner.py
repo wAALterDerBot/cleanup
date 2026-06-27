@@ -11,6 +11,13 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from pathlib import Path
+from anime_cleanup.models import (
+    Library,
+    SeriesFolder,
+    SeasonFolder,
+    VideoFile,
+)
+
 import re
 
 VIDEO_EXTENSIONS = {
@@ -29,31 +36,6 @@ TMDB_PATTERN = re.compile(r"\{tmdb-(\d+)\}$", re.IGNORECASE)
 TVDB_PATTERN = re.compile(r"\{tvdb-(\d+)\}$", re.IGNORECASE)
 SEASON_PATTERN = re.compile(r"Season\s+(\d+)", re.IGNORECASE)
 
-
-@dataclass(slots=True)
-class VideoFile:
-    path: Path
-    size: int
-
-
-@dataclass(slots=True)
-class SeasonFolder:
-    number: int
-    path: Path
-    videos: list[VideoFile] = field(default_factory=list)
-
-
-@dataclass(slots=True)
-class SeriesFolder:
-
-    name: str
-    path: Path
-
-    tmdb_id: int | None = None
-    tvdb_id: int | None = None
-
-    seasons: list[SeasonFolder] = field(default_factory=list)
-    loose_files: list[VideoFile] = field(default_factory=list)
 
 
 class LibraryScanner:
