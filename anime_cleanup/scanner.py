@@ -41,26 +41,21 @@ SEASON_PATTERN = re.compile(r"Season\s+(\d+)", re.IGNORECASE)
 class LibraryScanner:
 
     def __init__(self, root: Path):
-
         self.root = root
 
     def scan(self) -> Library:
+        library = Library(root=self.root)
 
-    library = Library(root=self.root)
-
-    for folder in sorted(self.root.iterdir()):
-
-        if not folder.is_dir():
-            continue
-
-        library.series.append(
-            self._scan_series(folder)
-        )
-
-    return library
+        for folder in sorted(self.root.iterdir()):
+            if not folder.is_dir():
+                continue
+            
+            library.series.append(
+                self._scan_series(folder)
+            )
+        return library
 
     def _scan_series(self, folder: Path) -> SeriesFolder:
-
         tmdb = None
         tvdb = None
 
