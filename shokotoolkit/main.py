@@ -1,16 +1,13 @@
-from rich import print
+"""
+Package entry point.
 
-from shokotoolkit import __version__
+Allows execution via:
+
+python -m shokotoolkit
+"""
+
+from shokotoolkit.main import main
 
 
-def main():
-
-    print()
-
-    print(f"[bold cyan]Shoko Toolkit[/bold cyan] v{__version__}")
-
-    print()
-
-    print("Library Management Toolkit")
-
-    print()
+if __name__ == "__main__":
+    main()
