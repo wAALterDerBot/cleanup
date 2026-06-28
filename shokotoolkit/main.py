@@ -1,13 +1,19 @@
-"""
-Package entry point.
+from shokotoolkit import __version__
 
-Allows execution via:
+from shokotoolkit.logging import (
+    setup_logging,
+    get_logger,
+)
 
-python -m shokotoolkit
-"""
-
-from shokotoolkit.main import main
+from shokotoolkit.constants import APP_NAME
 
 
-if __name__ == "__main__":
-    main()
+def main():
+
+    setup_logging()
+
+    log = get_logger("main")
+
+    log.info("%s %s", APP_NAME, __version__)
+
+    log.info("Toolkit started.")
