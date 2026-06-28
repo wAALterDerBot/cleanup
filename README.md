@@ -1,37 +1,25 @@
 # Shoko Toolkit
 
-Python Toolkit for maintaining large anime libraries.
+Toolkit for maintaining and repairing Shoko libraries.
 
 ## Features
 
-- Library Scanner
-- Shoko API
-- Health Report
-- Hardlink Verification
-- Duplicate Detection
-- Cleanup
-- Repair
+- Doctor
+- Duplicate detection
+- Empty folder cleanup
+- Hardlink verification
+- Missing metadata
+- Reports
+- Library verification
 
 ## Installation
 
-```bash
-pip install -r requirements.txt
-```
-
-## Configuration
-
-Copy
-
-config.yaml.example
-
-to
-
-config.yaml
-
-and edit the values.
+pip install shokotoolkit
 
 ## Usage
 
-```bash
-python main.py
-```
+shokotoolkit doctor
+
+shokotoolkit cleanup
+
+shokotoolkit verify
