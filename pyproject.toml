@@ -1,1 +1,22 @@
+[project]
+name = "shokotoolkit"
+version = "0.1.0"
+description = "Toolkit for maintaining Shoko, Sonarr and Jellyfin libraries."
+authors = [
+    { name = "Senpai" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
 
+dependencies = [
+    "requests>=2.32",
+    "PyYAML>=6.0",
+    "rich>=14.0",
+]
+
+[project.scripts]
+shokotoolkit = "shokotoolkit.main:main"
+
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
