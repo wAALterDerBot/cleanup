@@ -15,23 +15,37 @@ class ApiClient:
 
         self.session = requests.Session()
 
-    def request(
-        self,
-        method: str,
-        endpoint: str,
-        **kwargs,
-    ):
+    def request(self, method: str, endpoint: str, **kwargs):
 
         url = self.host + endpoint
 
         log.debug("%s %s", method.upper(), url)
 
         response = self.session.request(
-            method,
-            url,
+            method=method,
+            url=url,
+            timeout=30,
             **kwargs,
         )
 
         response.raise_for_status()
 
-        return response
+        if response.content:
+            return response.json()
+
+        return None
+
+    def get(self, endpoint: str):
+
+        return self.request(
+            "GET",
+            endpoint,
+        )
+
+    def post(self, endpoint: str, payload: dict):
+
+        return self.request(
+            "POST",
+            endpoint,
+            json=payload,
+        )
