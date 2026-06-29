@@ -1,13 +1,5 @@
-library:
-  root: /mnt/TANK/media/anime
-
-downloads:
-  root: /mnt/TANK/media/downloads
-
 shoko:
-  host: http://127.0.0.1:8111
-  username: admin
-  password: changeme
 
-logging:
-  level: INFO
+  host: http://localhost:8111
+
+  api_key: CHANGE_ME
