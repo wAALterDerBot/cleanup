@@ -15,6 +15,15 @@ log = get_logger(__name__)
 
 DEFAULT_TIMEOUT = 30
 
+self.timeout = DEFAULT_HTTP_TIMEOUT
+
+self.session.headers.update(
+    {
+        "User-Agent": USER_AGENT,
+        "Accept": "application/json",
+    }
+)
+
 
 class ApiClient:
     """
