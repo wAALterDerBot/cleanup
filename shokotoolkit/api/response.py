@@ -1,11 +1,21 @@
+"""
+Response wrapper classes.
+"""
+
+from __future__ import annotations
+
 from dataclasses import dataclass
+from typing import Any
 
 
 @dataclass(slots=True)
 class ApiResponse:
+    """
+    Generic response returned by the API layer.
+    """
 
-    status: int
+    status_code: int
 
-    data: object
+    data: Any
 
-    headers: dict
+    headers: dict[str, str]
