@@ -12,4 +12,6 @@ LOG_DIR = Path("logs")
 
 LOG_FILE = LOG_DIR / "shokotoolkit.log"
 
-DEFAULT_TIMEOUT = 30
+DEFAULT_HTTP_TIMEOUT = 30
+
+USER_AGENT = "ShokoToolkit/0.1"
